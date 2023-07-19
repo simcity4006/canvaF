@@ -4,7 +4,7 @@ require('dotenv').config();
 const app = express();
 const path = require('path');
 const cors = require('cors');
-const port = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3002;
 if (process.env.NODE_ENV === 'local') {
   app.use(
     cors({
@@ -40,5 +40,5 @@ const dbconnect = async () => {
 };
 dbconnect();
 app.listen(port, () => {
-  console.log(`server is running at http://localhost:${port}`);
+  console.log(`server is running at http://localhost:${PORT}`);
 });
