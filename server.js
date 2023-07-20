@@ -4,7 +4,7 @@ require('dotenv').config();
 const app = express();
 const path = require('path');
 const cors = require('cors');
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT;
 if (process.env.NODE_ENV === 'local') {
   app.use(
     cors({
@@ -27,15 +27,10 @@ if (process.env.NODE_ENV === 'produection') {
 }
 const dbconnect = async () => {
   try {
-    if (process.env.NODE_ENV === 'local') {
-      await mongoose.connect(process.env.LOCAL_DB_URI);
-      console.log(`local database is connected ...  `);
-    } else {
-      await mongoose.connect(process.env.MONGODB_URI);
-      console.log(`production database is connected ...  `);
-    }
+    await mongoose.connect(process.env.LOCAL_DB_URI);
+    console.log(`production database is connected ...`);
   } catch (error) {
-    console.log('database connection faild');
+    console.error('Database connection failed:', error);
   }
 };
 dbconnect();
