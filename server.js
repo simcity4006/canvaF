@@ -20,9 +20,11 @@ if (process.env.NODE_ENV === 'local') {
   );
 }
 if (process.env.NODE_ENV === 'produection') {
-  app.use(express.static(path.join(__dirname, './frontend')));
+  app.use(express.static(path.join(__dirname, './frontend/dist')));
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './', 'frontend', 'index.html'));
+    res.sendFile(
+      path.resolve(__dirname, './', 'frontend', 'dist', 'index.html')
+    );
   });
 }
 const dbconnect = async () => {

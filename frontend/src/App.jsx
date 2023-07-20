@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/LOGO.jpg';
-import './App.css';
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
 function App() {
-  const [foysal, setfoysal] = useState(0);
+  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -16,17 +16,20 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Foysal + Simcity</h1>
+      <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setfoysal(foysal => foysal + 1)}>
-          foysal is {foysal}
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
         </button>
-        <p>Foysal Ahmed Sorker whatever</p>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
       </div>
-      <h1>Foysal Ahmed Sorker</h1>
-      <span>Full Stack Web Developer(MERN STACK)</span>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
