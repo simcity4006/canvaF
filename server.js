@@ -27,6 +27,9 @@ if (process.env.NODE_ENV === 'produection') {
     );
   });
 }
+app.get('/isfor', (req, res) => {
+  res.send('<h1>Server is Running at Foysal</h1>');
+});
 const dbconnect = async () => {
   try {
     await mongoose.connect(process.env.LOCAL_DB_URI);
